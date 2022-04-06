@@ -80,9 +80,9 @@
 				</tr>		
 				<tr>
 					<%for(Board b : list) {%>
-							<td><%=b.categoryName%></td>
-							<td><a href="<%=request.getContextPath()%>/board/boardOne.jsp?boardNo=<%=b.boardNo%>" class="text-info"><b><%=b.boardTitle%></b></a></td>
-							<td><%=b.createDate%></td></tr>
+							<td><%=b.getCategoryName()%></td>
+							<td><a href="<%=request.getContextPath()%>/board/boardOne.jsp?boardNo=<%=b.getBoardNo()%>" class="text-info"><b><%=b.getBoardTitle()%></b></a></td>
+							<td><%=b.getCreateDate()%></td></tr>
 					<%}%>
 			</table>
 			<!-- 페이지 부분 -->
@@ -94,12 +94,12 @@
 				<!-- 마지막 페이지라면 다음페이지가 존재해서는 안된다. -->
 					<%if(currentPage < lastPage){%>
 						<a href="<%=request.getContextPath()%>/board/boardList.jsp?currentPage=<%=currentPage+1%>&categoryName=<%=categoryName%>" class="btn btn-link text-info bg-light">다음</a>
-					<%}%> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					<%}%>
 					</div>
 				</div>
 			<div class="rightbutton">
 				<a href="<%=request.getContextPath()%>/board/insertBoardFrom.jsp" class="btn btn-link text-light bg-info">게시글입력</a>
 			</div>
-			</div>
+		</div>
 </body>
 </html>

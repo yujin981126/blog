@@ -30,8 +30,9 @@
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
 	<style>
 		.container{text-align:center;}
-		.v,.col-sm-10{text-align:left;}
+		td,.col-sm-10{text-align:left;}
 		.rightbutton{text-align:right;}
+		.footer{position: relative; bottom: 0;}
 	</style>
 </head>
 <body>
@@ -59,19 +60,19 @@
 				<table class="table text-info">
 				<%for(Board b : List){ %>
 					<tr>
-						<td class="bg-light">categoryName</td><td class="v"><%=b.categoryName%></td>
+						<td class="bg-light">categoryName</td><td><%=b.getCategoryName()%></td>
 					</tr>
 					<tr>
-						<td class="bg-light">boardTitle</td>	<td class="v"><%=b.boardTitle%></td>
+						<td class="bg-light">boardTitle</td><td><%=b.getBoardTitle()%></td>
 					</tr>
 					<tr>
-						<td class="bg-light">boardContent</td><td class="v"><%=b.boardContent%></td>
+						<td class="bg-light">boardContent</td><td><%=b.getBoardContent()%></td>
 					</tr>
 					<tr>
-						<td class="bg-light">createDate </td><td class="v"><%=b.createDate%></td>
+						<td class="bg-light">createDate </td><td><%=b.getCreateDate()%></td>
 					</tr>
 					<tr>
-						<td class="bg-light">updateDate</td><td class="v"><%=b.updateDate%></td>
+						<td class="bg-light">updateDate</td><td><%=b.getUpdateDate()%></td>
 					</tr>
 					<% } %>
 				</table>

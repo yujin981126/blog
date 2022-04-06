@@ -30,11 +30,11 @@
 	Board b = null;
 	if(boardNoRs.next()) {
 		b = new Board();
-		b.categoryName = boardNoRs.getString("categoryName");
-		b.boardTitle = boardNoRs.getString("boardTitle");
-		b.boardContent = boardNoRs.getString("boardContent");
-		b.createDate = boardNoRs.getString("createDate");
-		b.updateDate = boardNoRs.getString("updateDate");
+		b.setCategoryName(boardNoRs.getString("categoryName"));
+		b.setBoardTitle(boardNoRs.getString("boardTitle"));
+		b.setBoardContent(boardNoRs.getString("boardContent"));
+		b.setCreateDate(boardNoRs.getString("createDate"));
+		b.setUpdateDate(boardNoRs.getString("updateDate"));
 	}
 
 	//category 목록
@@ -79,7 +79,7 @@
 					<td>
 						<select name="categoryName" class="form-control">
 							<%for(String s:categoryList) {
-								if(s.equals(b.categoryName)){%>
+								if(s.equals(b.getCategoryName())){%>
 									<option selected ="selected" value ="<%=s%>"><%=s%></option>
 								<%} else {%>
 									<option value="<%=s%>"><%=s%></option>
@@ -90,7 +90,7 @@
 				</tr>
 				<tr>
 					<td class="bg-light">boardTilte</td>
-					<td><input type="text" name="boardTitle" value="<%=b.boardTitle%>"class="form-control"></td>
+					<td><input type="text" name="boardTitle" value="<%=b.getBoardTitle()%>"class="form-control"></td>
 				</tr>
 				<tr>
 					<td class="bg-light">boardContent</td>

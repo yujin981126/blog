@@ -8,16 +8,16 @@
 	request.setCharacterEncoding("utf-8");	
 	//넘겨온 문자들 저장해주기
 	Board board = new Board();
-	board.categoryName = request.getParameter("categoryName");	
-	board.boardTitle = request.getParameter("boardTitle");	
-	board.boardContent = request.getParameter("boardContent");	
-	board.boardPw = request.getParameter("boardPw");
+	board.setCategoryName(request.getParameter("categoryName"));	
+	board.setBoardTitle(request.getParameter("boardTitle"));	
+	board.setBoardContent(request.getParameter("boardContent"));	
+	board.setBoardPw(request.getParameter("boardPw"));
 	
 	// 디버그 
-	System.out.println("categoryName->" +board.categoryName);
-	System.out.println("boardTitle->" +board.boardTitle);
-	System.out.println("boardContent->" +board.boardContent);
-	System.out.println("boardPw->" +board.boardPw);
+	System.out.println("categoryName->" +board.getCategoryName());
+	System.out.println("boardTitle->" +board.getBoardTitle());
+	System.out.println("boardContent->" +board.getBoardContent());
+	System.out.println("boardPw->" +board.getBoardPw());
 
 	BoardDao boardDao = new BoardDao();
 	boardDao.insertBoard(board);

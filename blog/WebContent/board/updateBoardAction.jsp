@@ -8,18 +8,18 @@
 	request.setCharacterEncoding("utf-8");	
 
 	Board board = new Board();
-	board.boardNo = Integer.parseInt(request.getParameter("boardNo"));
-	board.categoryName = request.getParameter("categoryName");	
-	board.boardTitle = request.getParameter("boardTitle");	
-	board.boardContent = request.getParameter("boardContent");	
-	board.boardPw = request.getParameter("boardPw");
+	board.setBoardNo(Integer.parseInt(request.getParameter("boardNo")));
+	board.setCategoryName(request.getParameter("categoryName"));	
+	board.setBoardTitle(request.getParameter("boardTitle"));	
+	board.setBoardContent(request.getParameter("boardContent"));	
+	board.setBoardPw(request.getParameter("boardPw"));
 	
 	// 디버그 
-	System.out.println("boardNo->" +board.boardNo);
-	System.out.println("categoryName->" +board.categoryName);
-	System.out.println("boardTitle->" +board.boardTitle);
-	System.out.println("boardContent->" +board.boardContent);
-	System.out.println("boardPw->" +board.boardPw);
+	System.out.println("boardNo->" +board.getBoardNo());
+	System.out.println("categoryName->" +board.getCategoryName());
+	System.out.println("boardTitle->" +board.getBoardTitle());
+	System.out.println("boardContent->" +board.getBoardContent());
+	System.out.println("boardPw->" +board.getBoardPw());
 
 	BoardDao boardDao = new BoardDao();
 	boardDao.updateBoard(board);

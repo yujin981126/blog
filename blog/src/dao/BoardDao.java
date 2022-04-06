@@ -102,11 +102,11 @@ public class BoardDao {
 		
 		while(rs.next()) {
 			Board b = new Board();
-			b.categoryName = rs.getString("categoryName");
-			b.boardTitle = rs.getString("boardTitle");
-			b.boardContent = rs.getString("boardContent");
-			b.createDate = rs.getString("createDate");
-			b.updateDate = rs.getString("updateDate");
+			b.setCategoryName(rs.getString("categoryName"));
+			b.setBoardTitle(rs.getString("boardTitle"));
+			b.setBoardContent(rs.getString("boardContent"));
+			b.setCreateDate(rs.getString("createDate"));
+			b.setUpdateDate(rs.getString("updateDate"));
 			list.add(b);
 		}
 		stmt.close();
@@ -157,10 +157,10 @@ public class BoardDao {
 		String sql = "insert into board(category_name,board_title,board_content,board_pw,create_date,update_date) value (?,?,?,?,now(),now())";
 		conn = DriverManager.getConnection(dburl, dbuser, dbpw); 
 		stmt = conn.prepareStatement(sql);
-		stmt.setString(1, board.categoryName);
-		stmt.setString(2, board.boardTitle);
-		stmt.setString(3, board.boardContent);
-		stmt.setString(4, board.boardPw);
+		stmt.setString(1, board.getCategoryName());
+		stmt.setString(2, board.getBoardTitle());
+		stmt.setString(3, board.getBoardContent());
+		stmt.setString(4, board.getBoardPw());
 		
 		int row = stmt.executeUpdate();
 		if(row == 1) {
@@ -187,11 +187,11 @@ public class BoardDao {
 		
 		String sql = "update board set category_name=?, board_title=?, board_content=?, update_date = NOW() WHERE board_no =?  AND board_pw=?";
 		stmt = conn.prepareStatement(sql);
-		stmt.setString(1, board.categoryName);
-		stmt.setString(2, board.boardTitle);
-		stmt.setString(3, board.boardContent);
-		stmt.setInt(4, board.boardNo);
-		stmt.setString(5, board.boardPw);
+		stmt.setString(1, board.getCategoryName());
+		stmt.setString(2, board.getBoardTitle());
+		stmt.setString(3, board.getBoardContent());
+		stmt.setInt(4, board.getBoardNo());
+		stmt.setString(5, board.getBoardPw());
 		row = stmt.executeUpdate(); 
 		
 		System.out.println(stmt+" <-- sql updateBoard"); 

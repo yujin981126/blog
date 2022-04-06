@@ -78,10 +78,10 @@ public class CategoryDao {
 			
 			while(boardRs.next()) {
 				Board b = new Board(); 
-				b.boardNo = boardRs.getInt("boardNo");
-				b.categoryName = boardRs.getString("categoryName");
-				b.boardTitle = boardRs.getString("boardTitle");
-				b.createDate = boardRs.getString("createDate"); 
+				b.setBoardNo(boardRs.getInt("boardNo"));
+				b.setCategoryName(boardRs.getString("categoryName"));
+				b.setBoardTitle(boardRs.getString("boardTitle"));
+				b.setCreateDate(boardRs.getString("createDate")); 
 				list.add(b);
 			}
 			stmt.close();
