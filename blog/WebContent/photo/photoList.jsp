@@ -8,15 +8,19 @@
 	if(request.getParameter("currentPage") != null) {
 		currentPage = Integer.parseInt(request.getParameter("currentPage"));
 	}
-	int beginRow = 0;
 	int rowPerPage = 10;
+	int beginRow = (currentPage-1)*rowPerPage; 
+	
 	PhotoDao photoDao = new PhotoDao();
 	ArrayList<Photo>list = photoDao.selectPhotoListByPage(beginRow,rowPerPage);
 	
-	int lastPage = 0;
 	int totalCount = photoDao.selectPhotoTotalRow();
-	lastPage = (int)(Math.ceil((double)totalCount/(double)rowPerPage)); 
 	
+	int lastPage = (int)(Math.ceil((double)totalCount/(double)rowPerPage)); 
+	
+	System.out.println("currentPage ->"+ currentPage);
+	System.out.println("totalCount ->"+ totalCount);
+	System.out.println("lastPage ->"+ lastPage);
 	
 %>
 <!DOCTYPE html>
@@ -48,32 +52,38 @@
 			// td의 갯수가 5의 배수가 되도록  
 			// 리스트 사이즈가 1~5 라면 td는 5개 
 			// list size가 6~10 라면 td는 10개
-			System.out.println(list.size()+"<== list.size()");
+		System.out.println(list.size()+"<== list.size()");
 		
-			int endIdx = (((list.size()-1)/5)+1)*5;//5의 배수가 되어야 함
-			System.out.println(endIdx+"<== endIdx");
+		int endIdx = (((list.size()-1)/5)+1)*5;//5의 배수가 되어야 함
+		System.out.println(endIdx+"<== endIdx");
 			
-			// for(Photo p :list){ //size 만큼 반복 되므로 5의 배수 아닌 경우가 생긴다.
-			for( int i = 0; i<endIdx; i++){
-				if(i != 0 && i%5 == 0  ){ //5일때 5의 배수일떄 %>
-					</tr><tr class="bg-light">
-				<%}
-				if(i<list.size()){%>
-					<td>
+		// for(Photo p :list){ //size 만큼 반복 되므로 5의 배수 아닌 경우가 생긴다.
+		for( int i = 0; i<endIdx; i++){
+			if(i != 0 && i%5 == 0  ){ //5일때 5의 배수일떄 %>
+				</tr><tr class="bg-light">
+			<%}
+			if(i<list.size()){%>
+				<td>
 					<a href="<%=request.getContextPath()%>/photo/photoOne.jsp?photoNo=<%=list.get(i).getPhotoNo()%>">
-					<img src="<%=request.getContextPath()%>/upload/<%=list.get(i).getPhotoName()%>" width = "200" height="200">
+						<img src="<%=request.getContextPath()%>/upload/<%=list.get(i).getPhotoName()%>" width = "200" height="200">
 					</a>
-					</td>
-					<%}else{%>
-						<td>&nbsp;</td>
-					<% 
-				}
-			}%>
+				</td>
+			<%}else{%>
+				<td>&nbsp;</td>
+			<% }%>
+		<%}%>
 		</tr>
 	</table>
+			
 	<div class="right">
 	<a href="<%=request.getContextPath()%>/photo/insertPhotoFrom.jsp" class="btn btn-link text-light bg-info">이미지 업로드</a>
 	</div>
+	<%if(currentPage > 1){ %>
+			<a href="<%=request.getContextPath()%>/photo/photoList.jsp?currentPage=<%=currentPage-1%>" class="btn btn-link text-info bg-light">이전</a>
+	<% } %>	
+	<% if(currentPage < lastPage){ %>
+	<a href="<%=request.getContextPath()%>/photo/photoList.jsp?currentPage=<%=currentPage+1%>" class="btn btn-link text-info bg-light">다음</a>
+	<% } %>	
 </div>
 </body>
 </html>

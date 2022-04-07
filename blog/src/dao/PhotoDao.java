@@ -74,9 +74,37 @@ public class PhotoDao {
 		return row;
 	}
 	
-	public int selectPhotoTotalRow() {
-		int total = 0;
-		return total;
+
+	public int selectPhotoTotalRow() throws Exception{
+
+		Class.forName("org.mariadb.jdbc.Driver");
+		
+		// 데이터베이스 자원 준비
+		Connection conn = null;
+		PreparedStatement stmt = null;
+		ResultSet rs = null;
+		int row = 0;
+		
+		String dburl = "jdbc:mariadb://localhost:3306/blog";
+		String dbuser = "root";
+		String dbpw = "java1234";
+		
+		/* select count(*) cnt from photo";*/
+		
+		String sql = "select count(*) cnt from photo";
+		conn = DriverManager.getConnection(dburl, dbuser, dbpw); 
+		stmt = conn.prepareStatement(sql);
+		rs = stmt.executeQuery();
+		
+		if(rs.next()) {
+			row = rs.getInt("cnt");
+		}
+		
+		rs.close();
+		stmt.close();
+		conn.close();
+		
+		return row;
 	}
 	
 	public ArrayList<Photo> selectPhotoListByPage(int beginRow,int rowPerPage) throws Exception{
@@ -145,4 +173,5 @@ public class PhotoDao {
 		conn.close();
 		return list;
 	}
+
 }
