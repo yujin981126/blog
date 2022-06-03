@@ -26,7 +26,7 @@
 	</style>
 </head>
 <body>
-	<div class="container">
+<div class="container">
 	<jsp:include page="/inc/upMenu.jsp"></jsp:include>
 		<div class="text-info">
 			<br><h1>이미지상세보기</h1>
@@ -54,5 +54,6 @@
 					<a href="<%=request.getContextPath()%>/photo/deletePhotoFrom.jsp?photoNo=<%=photoNo%>" class="btn btn-link text-light bg-info">삭제</a>
 				</div>
 			</div>
+<br>
 </body>
 </html>

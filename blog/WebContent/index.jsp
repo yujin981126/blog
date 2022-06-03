@@ -2,11 +2,12 @@
 <%@ page import="java.util.*" %>
 <%@ page import="vo.*" %>
 <%@ page import="dao.*" %>
-<%@ page import="java.time.LocalDate" %>
 <%
-	LocalDate now = LocalDate.now();
 	BoardDao boardDao = new BoardDao();
-	ArrayList<Board> list= boardDao.selectLastBoard();
+	ArrayList<Board> boardList = boardDao.selectLastBoard();
+	
+	PhotoDao photoDao = new PhotoDao();
+	ArrayList<Photo> photoList = photoDao.selectLastPhoto();
 %>
 
 <!DOCTYPE html>
@@ -19,62 +20,59 @@
 		.container{
 		text-align:center;
 		
-		}
-		.bg_img img{
-		 position: relative;
-		 top:0;
-		 right:0;
-		 filter: brightness(65%); 
-		 width:100%;
-		 z-index: -1;
-
-		 }
-		 .text_box{
-		 position: absolute;
-		 margin-top: -150px;
-		 margin-left: 40px;
-		 
-		 }
+		}			
 	</style>
 </head>
 <body>
 
 <div class="container">
 <jsp:include page="/inc/upMenu.jsp"></jsp:include>
-	<div class="bg_img">
-		<img src="img/bgimg.jpg">
-		<div class="text-white text-left text_box">
-			<h4><%=now%></h4>
-			<h1>yujin981126 님의 블로그</h1>
-			<h6><a href="https://github.com/yujin981126" class="text-light">https://github.com/yujin981126</a></h6>
-		</div>
-		전체글보기
-		<hr>
+<div class="container p-4 my-4">
+  <h3> 😍 Welcome My Blog Page 😍</h3>
+  <p>Free Style(프리스타일) - Y<p>
+  <audio autoplay controls loop>
+    <source src="<%=request.getContextPath()%>/audio/Freestyle.mp3" type="audio/mp3">
+</audio>
+  <div class="row">
+	  <div class="col-sm-3"></div>
+	 	 <div class="col-sm-6">
+	 	 <a href="<%=request.getContextPath()%>/guestBook/guestList.jsp" class="btn ws-btn btn-block btn-outline-info">방명록 작성하기</a>
+	 	 </div>
+	  <div class="col-sm-3"></div>
+	</div>
+</div>
+<div class="container">
 		<div class="row">
 			<div class="col-sm-6 text-left">
-			 <p class="bg-info text-white"> 게시글
-			 <a href="<%=request.getContextPath()%>/board/boardList.jsp" class="btn btn-link text-info bg-light btn-sm float-right">더보기</a></p>
-				
-				<table class="table">	
-					<%for(Board b : list) {%>
-					<tr height="30">
-						<td><a href="<%=request.getContextPath()%>/board/boardOne.jsp?boardNo=<%=b.getBoardNo()%>" class="text-info"><b><%=b.getBoardTitle()%></b></a></td>
-						<td class="text-right"><%=b.getCreateDate()%></td>
-					</tr>
-					<%}%>
+			<h5 class="text-info"><b> ㆍ게시글</b><a href="<%=request.getContextPath()%>/board/boardList.jsp" class="btn btn-link text-info bg-light btn-sm float-right">더보기</a></h5>
+			 
+				<table class="table table-hover">	
+					<% for(Board b : boardList){ %>
+						<tr>
+							<td>
+								<a href="<%=request.getContextPath()%>/board/boardOne.jsp?boardNo=<%=b.getBoardNo()%>" class="text-secondary">
+									<b><%=b.getBoardTitle()%></b>
+								</a>
+							</td>
+							<td class="text-right"><%=b.getCreateDate()%>
+							</td>
+						</tr>
+					<% } %>
 				</table>
 			</div>
 			<div class="col-sm-6 text-left">
-			 <p class="bg-info text-white"> 갤러리
-			 				<a href="<%=request.getContextPath()%>/photo/photoList.jsp" class="btn btn-link text-info bg-light btn-sm float-right">더보기</a></p>
-
+			<h5 class="text-info"><b>ㆍ갤러리</b><a href="<%=request.getContextPath()%>/photo/photoList.jsp" class="btn btn-link text-info bg-light btn-sm float-right">더보기</a></h5>
 				<table class="table">	
-					<%for(Board b : list) {%>
-					<tr height="30">
-						<td><a href="<%=request.getContextPath()%>/board/boardOne.jsp?boardNo=<%=b.getBoardNo()%>" class="text-info"><b><%=b.getBoardTitle()%></b></a></td>
-						<td class="text-right"><%=b.getCreateDate()%></td>
-					</tr>
-					<%}%>
+				<tr>
+					<%for(Photo p : photoList){%>
+					<td>
+					<br>
+						<a href="<%=request.getContextPath()%>/photo/photoOne.jsp?photoNo=<%=p.getPhotoNo()%>">
+							<img src="<%=request.getContextPath()%>/upload/<%=p.getPhotoName()%>" width = "150" height="150">
+						</a>
+					</td>
+					<% } %>
+				<tr>
 				</table>
 			</div>
 		</div>

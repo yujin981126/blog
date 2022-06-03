@@ -39,7 +39,7 @@
 <div class="container">
 	<jsp:include page="/inc/upMenu.jsp"></jsp:include>
 	<div class="text-info">
-	<br><h1>이미지 목록</h1>
+	<br><h1>갤러리</h1>
 	</div>
 	<br>
 		<table class="table text-info">
@@ -85,5 +85,6 @@
 	<a href="<%=request.getContextPath()%>/photo/photoList.jsp?currentPage=<%=currentPage+1%>" class="btn btn-link text-info bg-light">다음</a>
 	<% } %>	
 </div>
+<br>
 </body>
 </html>

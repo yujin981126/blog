@@ -40,5 +40,6 @@
 		<button type="submit" class="btn btn-link text-light bg-info" > 업로드</button>
 	</form>
 	</div>
+<br>
 </body>
 </html>

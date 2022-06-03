@@ -106,6 +106,33 @@ public class PhotoDao {
 		
 		return row;
 	}
+	// 최근 사진 3개만 보여주는 메서드 
+	public ArrayList<Photo> selectLastPhoto() throws Exception{
+		ArrayList<Photo> list = new ArrayList<Photo>();
+
+		Class.forName("org.mariadb.jdbc.Driver");
+		// 데이터베이스 자원 준비
+		Connection conn = null;
+		PreparedStatement stmt = null;
+		ResultSet rs = null;
+		
+		String dburl = "jdbc:mariadb://3.36.56.76:3306/blog";
+		String dbuser = "root";
+		String dbpw = "mariadb1234";
+		conn = DriverManager.getConnection(dburl, dbuser, dbpw); 
+		String sql = "select photo_no photoNo, photo_name photoName from photo order by create_date DESC limit 0,3";
+		
+		stmt = conn.prepareStatement(sql);
+		rs = stmt.executeQuery();
+		while(rs.next()) {
+			Photo p = new Photo();
+			p.setPhotoNo(rs.getInt("photoNo"));
+			p.setPhotoName(rs.getString("photoName"));
+			list.add(p);
+		}
+		return list;
+	}
+	
 	
 	public ArrayList<Photo> selectPhotoListByPage(int beginRow,int rowPerPage) throws Exception{
 		ArrayList<Photo> list = new ArrayList<Photo>();
@@ -139,6 +166,7 @@ public class PhotoDao {
 		return list;
 		
 	}
+	
 	public Photo selectPhotoOne(int PhotoNo) throws Exception{
 		Photo photo = null;
 		return photo;

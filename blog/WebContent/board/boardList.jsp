@@ -52,8 +52,8 @@
 	<jsp:include page="/inc/upMenu.jsp"></jsp:include>
 	<div class="text-info">
 	<br>
-		<h1>목록 &nbsp;<span class="badge badge-info"><%=totalRow%></span></h1>
-		</div>
+	<h1>게시판 &nbsp;<span class="badge badge-info"><%=totalRow%></span></h1>
+	</div>
 		<br>
 		<div class="row">
 			<div class="col-sm-2">
@@ -101,5 +101,6 @@
 				<a href="<%=request.getContextPath()%>/board/insertBoardFrom.jsp" class="btn btn-link text-light bg-info">게시글입력</a>
 			</div>
 		</div>
+	<br>
 </body>
 </html>
