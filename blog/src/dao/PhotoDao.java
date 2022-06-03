@@ -19,9 +19,9 @@ public class PhotoDao {
 		Connection conn = null;
 		PreparedStatement stmt = null;
 		
-		String dburl = "jdbc:mariadb://localhost:3306/blog";
+		String dburl = "jdbc:mariadb://3.36.56.76:3306/blog";
 		String dbuser = "root";
-		String dbpw = "java1234";
+		String dbpw = "mariadb1234";
 		/*
 		"INSERT INTO photo(photo_name,
 							photo_original_name, 
@@ -58,9 +58,9 @@ public class PhotoDao {
 		Connection conn = null;
 		PreparedStatement stmt = null;
 		
-		String dburl = "jdbc:mariadb://localhost:3306/blog";
+		String dburl = "jdbc:mariadb://3.36.56.76:3306/blog";
 		String dbuser = "root";
-		String dbpw = "java1234";
+		String dbpw = "mariadb1234";
 		conn = DriverManager.getConnection(dburl, dbuser, dbpw); 
 		
 		String sql = "DELETE FROM photo WHERE photo_no=? AND photo_pw=?";
@@ -85,9 +85,9 @@ public class PhotoDao {
 		ResultSet rs = null;
 		int row = 0;
 		
-		String dburl = "jdbc:mariadb://localhost:3306/blog";
+		String dburl = "jdbc:mariadb://3.36.56.76:3306/blog";
 		String dbuser = "root";
-		String dbpw = "java1234";
+		String dbpw = "mariadb1234";
 		
 		/* select count(*) cnt from photo";*/
 		
@@ -116,9 +116,9 @@ public class PhotoDao {
 		PreparedStatement stmt = null;
 		ResultSet rs = null;
 		
-		String dburl = "jdbc:mariadb://localhost:3306/blog";
+		String dburl = "jdbc:mariadb://3.36.56.76:3306/blog";
 		String dbuser = "root";
-		String dbpw = "java1234";
+		String dbpw = "mariadb1234";
 		conn = DriverManager.getConnection(dburl, dbuser, dbpw); 
 		/*
 		 select photo_no photoNo, photo_name photoName from photo order by create_date DESC limit ?,? 
@@ -151,9 +151,9 @@ public class PhotoDao {
 		PreparedStatement stmt = null;
 		ResultSet rs = null;
 		
-		String dburl = "jdbc:mariadb://localhost:3306/blog";
+		String dburl = "jdbc:mariadb://3.36.56.76:3306/blog";
 		String dbuser = "root";
-		String dbpw = "java1234";
+		String dbpw = "mariadb1234";
 		conn = DriverManager.getConnection(dburl, dbuser, dbpw); 
 		
 		String sql = "select photo_name photoName,writer,create_date createDate,update_date updateDate from photo where photo_no=?";

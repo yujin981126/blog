@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
-	<div class="btn-group" style="width: 100%">
+	<div class="btn-group" style=" width:100%;">
 		<a href="<%=request.getContextPath()%>/index.jsp" class="btn btn-info">홈으로</a>
 		<a href="<%=request.getContextPath()%>/board/boardList.jsp" class="btn btn-info">게시판</a>
 		<a href="<%=request.getContextPath()%>/guestBook/guestList.jsp" class="btn btn-info">방명록</a>

@@ -19,9 +19,9 @@ public class CategoryDao {
 		PreparedStatement stmt = null;
 		ResultSet rs = null;
 		
-		String dburl = "jdbc:mariadb://localhost:3306/blog"; 
-		String dbuser = "root"; 
-		String dbpw = "java1234"; 
+		String dburl = "jdbc:mariadb://3.36.56.76:3306/blog";
+		String dbuser = "root";
+		String dbpw = "mariadb1234";
 		
 		String sql = "SELECT category_name categoryName, COUNT(*) cnt FROM board GROUP BY category_name";
 		conn = DriverManager.getConnection(dburl, dbuser, dbpw);
@@ -51,9 +51,9 @@ public class CategoryDao {
 			
 			Connection conn = null;
 
-			String dburl = "jdbc:mariadb://localhost:3306/blog"; 
-			String dbuser = "root"; 
-			String dbpw = "java1234"; 
+			String dburl = "jdbc:mariadb://3.36.56.76:3306/blog";
+			String dbuser = "root";
+			String dbpw = "mariadb1234";
 			conn = DriverManager.getConnection(dburl, dbuser, dbpw);
 			
 			String sql = ""; 

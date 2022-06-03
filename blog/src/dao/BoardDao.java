@@ -16,9 +16,9 @@ public class BoardDao {
 		PreparedStatement stmt = null;
 		ResultSet rs = null;
 		
-		String dburl = "jdbc:mariadb://localhost:3306/blog";
+		String dburl = "jdbc:mariadb://3.36.56.76:3306/blog";
 		String dbuser = "root";
-		String dbpw = "java1234";
+		String dbpw = "mariadb1234";
 		
 		/* "select count(*) from guestbook";*/
 		
@@ -36,6 +36,39 @@ public class BoardDao {
 		return row;
 	}
 	
+	// 최근게시물의 5개를 보여주는 메소드
+	public ArrayList<Board> selectLastBoard() throws Exception{
+			ArrayList<Board> list = new ArrayList<Board>();
+			
+			Class.forName("org.mariadb.jdbc.Driver");
+			
+			Connection conn = null;
+
+			String dburl = "jdbc:mariadb://3.36.56.76:3306/blog";
+			String dbuser = "root";
+			String dbpw = "mariadb1234";
+			conn = DriverManager.getConnection(dburl, dbuser, dbpw);
+			
+			String sql = ""; 
+			PreparedStatement stmt = null;
+			sql = "SELECT board_no boardNo,category_name categoryName, board_title boardTitle, create_date createDate FROM board ORDER BY create_date DESC LIMIT 0,5";
+			stmt = conn.prepareStatement(sql);
+			ResultSet boardRs = stmt.executeQuery();
+			
+			while(boardRs.next()) {
+				Board b = new Board(); 
+				b.setBoardNo(boardRs.getInt("boardNo"));
+				b.setCategoryName(boardRs.getString("categoryName"));
+				b.setBoardTitle(boardRs.getString("boardTitle"));
+				b.setCreateDate(boardRs.getString("createDate")); 
+				list.add(b);
+			}
+			stmt.close();
+			conn.close();
+			return list;
+		}
+
+		
 	//  마지막 페이지 수를 계산하는 메소드
 	public int lastPageBoard(int beginRow, int Row,String categoryName) throws Exception{
 		int lastPage = 0;
@@ -43,9 +76,9 @@ public class BoardDao {
 		
 		Connection conn = null;
 
-		String dburl = "jdbc:mariadb://localhost:3306/blog"; 
-		String dbuser = "root"; 
-		String dbpw = "java1234"; 
+		String dburl = "jdbc:mariadb://3.36.56.76:3306/blog";
+		String dbuser = "root";
+		String dbpw = "mariadb1234"; 
 		conn = DriverManager.getConnection(dburl, dbuser, dbpw);
 		
 		String sql ="";
@@ -90,9 +123,9 @@ public class BoardDao {
 		PreparedStatement stmt = null;
 		ResultSet rs = null;
 		
-		String dburl = "jdbc:mariadb://localhost:3306/blog";
+		String dburl = "jdbc:mariadb://3.36.56.76:3306/blog";
 		String dbuser = "root";
-		String dbpw = "java1234";
+		String dbpw = "mariadb1234";
 		conn = DriverManager.getConnection(dburl, dbuser, dbpw); 
 		
 		String sql = "select category_name categoryName,board_title boardTitle,board_content boardContent,create_date createDate,update_date updateDate from board where board_no =?";
@@ -123,9 +156,9 @@ public class BoardDao {
 		Connection conn = null;
 		PreparedStatement stmt = null;
 		
-		String dburl = "jdbc:mariadb://localhost:3306/blog";
+		String dburl = "jdbc:mariadb://3.36.56.76:3306/blog";
 		String dbuser = "root";
-		String dbpw = "java1234";
+		String dbpw = "mariadb1234";
 		conn = DriverManager.getConnection(dburl, dbuser, dbpw); 
 		
 		String sql = "DELETE FROM board WHERE board_no = ? AND board_pw= ?";
@@ -150,9 +183,9 @@ public class BoardDao {
 		Connection conn = null;
 		PreparedStatement stmt = null;
 		
-		String dburl = "jdbc:mariadb://localhost:3306/blog";
+		String dburl = "jdbc:mariadb://3.36.56.76:3306/blog";
 		String dbuser = "root";
-		String dbpw = "java1234";
+		String dbpw = "mariadb1234";
 		
 		String sql = "insert into board(category_name,board_title,board_content,board_pw,create_date,update_date) value (?,?,?,?,now(),now())";
 		conn = DriverManager.getConnection(dburl, dbuser, dbpw); 
@@ -180,9 +213,9 @@ public class BoardDao {
 		Connection conn = null;
 		PreparedStatement stmt = null;
 		
-		String dburl = "jdbc:mariadb://localhost:3306/blog";
+		String dburl = "jdbc:mariadb://3.36.56.76:3306/blog";
 		String dbuser = "root";
-		String dbpw = "java1234";
+		String dbpw = "mariadb1234";
 		conn = DriverManager.getConnection(dburl, dbuser, dbpw); 
 		
 		String sql = "update board set category_name=?, board_title=?, board_content=?, update_date = NOW() WHERE board_no =?  AND board_pw=?";
