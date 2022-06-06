@@ -38,5 +38,6 @@
 		<a href="<%=request.getContextPath()%>/board/boardList.jsp" class="btn btn-info">게시판</a>
 		<a href="<%=request.getContextPath()%>/guestBook/guestList.jsp" class="btn btn-info">방명록</a>
 		<a href="<%=request.getContextPath()%>/photo/photoList.jsp" class="btn btn-info">갤러리</a>
+		<a href="<%=request.getContextPath()%>/pdf/pdfList.jsp" class="btn btn-info">자료실</a>
 	</div>
 

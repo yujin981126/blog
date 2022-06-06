@@ -16,8 +16,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
-<title>photoList</title>
+<title>photoOne</title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
 	<style>
 		.container ,.imgCenter{text-align:center;}
