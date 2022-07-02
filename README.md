@@ -19,4 +19,5 @@
 
 ## Preview
 
-![ezgif com-gif-maker](https://user-images.githubusercontent.com/81568681/176998984-6fe5ce78-4d43-4f40-b20b-f2a9f75f5c7e.gif)
+![ezgif com-gif-maker (1)](https://user-images.githubusercontent.com/81568681/177000579-a0c94a1b-bf83-4296-a987-38de90b6609e.gif)
+
