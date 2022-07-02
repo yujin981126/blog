@@ -11,9 +11,9 @@
 	//Maria DB에 연동하기 
 	Class.forName("org.mariadb.jdbc.Driver");
 	Connection conn = null;
-	String dburl = "jdbc:mariadb://localhost:3306/blog";
+	String dburl = "jdbc:mariadb://3.39.153.13:3306/blog";
 	String dbuser = "root";
-	String dbpw = "java1234";
+	String dbpw = "mariadb1234";
 	conn = DriverManager.getConnection(dburl, dbuser, dbpw);
 	System.out.println(conn + " <-- conn");
 	

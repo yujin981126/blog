@@ -16,7 +16,7 @@ public class BoardDao {
 		PreparedStatement stmt = null;
 		ResultSet rs = null;
 		
-		String dburl = "jdbc:mariadb://3.36.56.76:3306/blog";
+		String dburl = "jdbc:mariadb://3.39.153.13:3306/blog";
 		String dbuser = "root";
 		String dbpw = "mariadb1234";
 		
@@ -44,7 +44,7 @@ public class BoardDao {
 			
 			Connection conn = null;
 
-			String dburl = "jdbc:mariadb://3.36.56.76:3306/blog";
+			String dburl = "jdbc:mariadb://3.39.153.13:3306/blog";
 			String dbuser = "root";
 			String dbpw = "mariadb1234";
 			conn = DriverManager.getConnection(dburl, dbuser, dbpw);
@@ -76,7 +76,7 @@ public class BoardDao {
 		
 		Connection conn = null;
 
-		String dburl = "jdbc:mariadb://3.36.56.76:3306/blog";
+		String dburl = "jdbc:mariadb://3.39.153.13:3306/blog";
 		String dbuser = "root";
 		String dbpw = "mariadb1234"; 
 		conn = DriverManager.getConnection(dburl, dbuser, dbpw);
@@ -123,7 +123,7 @@ public class BoardDao {
 		PreparedStatement stmt = null;
 		ResultSet rs = null;
 		
-		String dburl = "jdbc:mariadb://3.36.56.76:3306/blog";
+		String dburl = "jdbc:mariadb://3.39.153.13:3306/blog";
 		String dbuser = "root";
 		String dbpw = "mariadb1234";
 		conn = DriverManager.getConnection(dburl, dbuser, dbpw); 
@@ -156,7 +156,7 @@ public class BoardDao {
 		Connection conn = null;
 		PreparedStatement stmt = null;
 		
-		String dburl = "jdbc:mariadb://3.36.56.76:3306/blog";
+		String dburl = "jdbc:mariadb://3.39.153.13:3306/blog";
 		String dbuser = "root";
 		String dbpw = "mariadb1234";
 		conn = DriverManager.getConnection(dburl, dbuser, dbpw); 
@@ -183,7 +183,7 @@ public class BoardDao {
 		Connection conn = null;
 		PreparedStatement stmt = null;
 		
-		String dburl = "jdbc:mariadb://3.36.56.76:3306/blog";
+		String dburl = "jdbc:mariadb://3.39.153.13:3306/blog";
 		String dbuser = "root";
 		String dbpw = "mariadb1234";
 		
@@ -213,7 +213,7 @@ public class BoardDao {
 		Connection conn = null;
 		PreparedStatement stmt = null;
 		
-		String dburl = "jdbc:mariadb://3.36.56.76:3306/blog";
+		String dburl = "jdbc:mariadb://3.39.153.13:3306/blog";
 		String dbuser = "root";
 		String dbpw = "mariadb1234";
 		conn = DriverManager.getConnection(dburl, dbuser, dbpw); 

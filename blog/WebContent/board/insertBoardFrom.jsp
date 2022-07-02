@@ -4,9 +4,9 @@
 <%
    Class.forName("org.mariadb.jdbc.Driver");
    Connection conn = null;
-   String dburl = "jdbc:mariadb://localhost:3306/blog";
-   String dbuser = "root";
-   String dbpw = "java1234";
+   String dburl = "jdbc:mariadb://3.39.153.13:3306/blog";
+	String dbuser = "root";
+	String dbpw = "mariadb1234";
    conn = DriverManager.getConnection(dburl, dbuser, dbpw);
    String sql = "SELECT category_name categoryName FROM category ORDER BY category_name ASC";
    PreparedStatement stmt = conn.prepareStatement(sql);
